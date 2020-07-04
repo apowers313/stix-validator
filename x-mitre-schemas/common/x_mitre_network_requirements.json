@@ -1,0 +1,7 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_network_requirements.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "network requirements",
+    "type": "boolean",
+    "description": ""
+}

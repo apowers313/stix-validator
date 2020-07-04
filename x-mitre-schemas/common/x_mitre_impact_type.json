@@ -1,0 +1,14 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_impact_type.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "impact type",
+    "type": "array",
+    "description": "",
+    "items": {
+        "type": "string",
+        "enum": [
+            "Integrity",
+            "Availability"
+        ]
+    }
+}

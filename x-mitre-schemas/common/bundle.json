@@ -1,0 +1,15 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/bundle.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "",
+    "$patch": {
+        "source": {
+            "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.0/schemas/common/bundle.json"
+        },
+        "with": [
+            { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/0/$ref", "value": "../sdos/attack-pattern.json" },
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/0/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/attack-pattern.json" }
+        ]
+    }
+}

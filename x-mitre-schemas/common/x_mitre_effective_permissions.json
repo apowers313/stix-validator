@@ -1,0 +1,13 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_effective_permissions.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "effective permissions",
+    "type": "array",
+    "description": "",
+    "items": {
+        "type": "string",
+        "enum": [
+            "SYSTEM"
+        ]
+    }
+}

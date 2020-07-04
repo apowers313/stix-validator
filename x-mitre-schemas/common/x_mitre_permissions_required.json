@@ -1,0 +1,17 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_permissions_required.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "permissions required",
+    "type": "array",
+    "description": "",
+    "items": {
+        "type": "string",
+        "enum": [
+            "User",
+            "Administrator",
+            "SYSTEM",
+            "root",
+            "Remote Desktop Users"
+        ]
+    }
+}

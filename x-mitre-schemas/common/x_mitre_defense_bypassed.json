@@ -1,0 +1,10 @@
+{
+    "$id": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "defense bypassed",
+    "type": "array",
+    "description": "",
+    "items": {
+        "type": "string"
+    }
+}

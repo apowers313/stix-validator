@@ -1,0 +1,25 @@
+{
+  "name": "stix-validator",
+  "version": "1.0.0",
+  "description": "A STIX 2.0 JSON validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "stix",
+    "validator"
+  ],
+  "author": "Adam Powers <ampower@amazon.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ajv": "^6.12.2",
+    "ajv-formats-draft2019": "^1.4.3",
+    "ajv-merge-patch": "^4.1.0",
+    "walk": "^2.3.14"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}
