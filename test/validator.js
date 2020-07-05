@@ -19,7 +19,7 @@ describe("validator", function() {
             let ap = require("./helpers/empty.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data should have required property 'type'");
+            }, Error, "Missing required property 'type' in Object {}. Relevant JSON schema is: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.0/schemas/common/bundle.json'");
         });
 
         it("bad json");

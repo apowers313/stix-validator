@@ -66,14 +66,14 @@ describe("mitre", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-missing-id.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data should have required property 'id'");
+            }, Error, "Missing required property 'id' in Object {\"x_mitre_permissions_required\":[\"User\"],\"x_mitre_data_sources\":[\"OAuth audit logs\",\"Office 365 ... }. Relevant JSON schema is: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.0/schemas/common/core.json");
         });
 
         it("throws on bad id (bad guid)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-id.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.id should match pattern \"");
+            }, Error, "Property '.id' must be a string of numbers, letters and hyphens followed by a UUID like \"attack-pattern--fdda765f-fc57-5604-a269-52a7df8164ec\", value is: \"attack-pattern--27960489-4e7f-461d-a62a-f5c0cb521e4\". Relevant JSON schema is: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.0/schemas/common/identifier.json'");
             // }, Error, "data.id should match pattern \"^[a-z0-9][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$");
         });
 
@@ -81,98 +81,98 @@ describe("mitre", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-id-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.id should match pattern \"^attack-pattern--");
+            }, Error, "Property '.id' must match RegExp pattern '^attack-pattern--', value is: \"attack-patern--27960489-4e7f-461d-a62a-f5c0cb521e4a\". Relevant JSON schema is: '#/allOf/1/properties/id/pattern'");
         });
 
         it("throws on bad type", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-type.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.type should match pattern \"");
+            }, Error, "Property '.type' must be a string of numbers, letters and hyphens like \"attack-pattern\" or \"identity\", value is: \"as;ldkjfa;lskdjf\". Relevant JSON schema is: '#/properties/type/pattern");
         });
 
         it("throws on bad permissions_required (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-permissions-required.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_permissions_required should be array");
+            }, Error, "Property '.x_mitre_permissions_required' must be a array but got the value: {\"foo\":\"bar\"}. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_permissions_required.json'");
         });
 
         it("throws on bad permissions_required (not in enum)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-permissions-required-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_permissions_required[0] should be equal to one of the allowed values");
+            }, Error, "Property '.x_mitre_permissions_required[0]' must be one of the values: \"User, Administrator, SYSTEM, root, Remote Desktop Users\" but got the value: \"admin\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_permissions_required.json/items/enum'");
         });
 
         it("throws on bad data_sources (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-data-sources.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_data_sources should be array");
+            }, Error, "Property '.x_mitre_data_sources' must be a array but got the value: true. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_data_sources.json'");
         });
 
         it("throws on bad data_sources (bad type in array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-data-sources-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_data_sources[3] should be string");
+            }, Error, "Property '.x_mitre_data_sources[3]' must be a string but got the value: 3. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_data_sources.json/items/type'");
         });
 
         it("throws on bad platforms (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-platforms.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_platforms should be array");
+            }, Error, "Property '.x_mitre_platforms' must be a array but got the value: 3. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_platforms.json'");
         });
 
         it("throws on bad platforms (bad enum)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-platforms-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_platforms[1] should be equal to one of the allowed values");
+            }, Error, "Property '.x_mitre_platforms[1]' must be one of the values: \"Linux, macOS, Windows, SaaS, Office 365, Azure AD, Azure, AWS, GCP\" but got the value: \"Bob\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_platforms.json/items/enum'");
         });
 
         it("throws on bad version", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-version.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_version should be string");
+            }, Error, "Property '.x_mitre_version' must be a string but got the value: 1.1. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_version.json'");
         });
 
         it("throws on bad detection", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-detection.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_detection should be string");
+            }, Error, "Property '.x_mitre_detection' must be a string but got the value: [1,2,3]. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_detection.json'");
         });
 
         it("throws on bad contributors (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-contributors.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_contributors should be array");
+            }, Error, "Property '.x_mitre_contributors' must be a array but got the value: \"hi there\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_contributors.json'");
         });
 
         it("throws on bad contributors (bad type in array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-contributors-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_contributors[2] should be string");
+            }, Error, "Property '.x_mitre_contributors[2]' must be a string but got the value: true. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_contributors.json/items/type'");
         });
 
         it("throws no bad defense_bypassed (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-defense-bypassed.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_defense_bypassed should be array");
+            }, Error, "Property '.x_mitre_defense_bypassed' must be a array but got the value: \"bob\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json'");
         });
 
         it("throws no bad defense_bypassed (bad type in array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-defense-bypassed-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "data.x_mitre_defense_bypassed[2] should be string");
+            }, Error, "Property '.x_mitre_defense_bypassed[2]' must be a string but got the value: {\"foo\":\"bar\"}. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json/items/type'");
         });
     });
 });
