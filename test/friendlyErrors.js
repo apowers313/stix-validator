@@ -753,4 +753,6 @@ describe("friendly errors", function() {
     });
 
     it("oneOf");
+    it("anyOf");
+    it("not");
 });

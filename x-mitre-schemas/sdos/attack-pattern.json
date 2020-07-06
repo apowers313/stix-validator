@@ -6,15 +6,18 @@
             "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.0/schemas/sdos/attack-pattern.json"
         },
         "with": [
-            { "op": "test", "path": "/allOf/0/$ref", "value": "../common/core.json" },
-            { "op": "replace", "path": "/allOf/0/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/common/core.json" },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_permissions_required", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_permissions_required.json" } },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_data_sources", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_data_sources.json" } },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_platforms", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_platforms.json" } },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_version", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_version.json" } },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_detection", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_detection.json" } },
             { "op": "add", "path": "/allOf/1/properties/x_mitre_contributors", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_contributors.json" } },
-            { "op": "add", "path": "/allOf/1/properties/x_mitre_defense_bypassed", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json" } }
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_effective_permissions", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_effective_permissions.json" } },
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_impact_type", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_impact_type.json" } },
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_system_requirements", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_system_requirements.json" } },
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_remote_support", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_remote_support.json" } },
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_defense_bypassed", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json" } },
+            { "op": "add", "path": "/allOf/1/properties/x_mitre_network_requirements", "value": { "$ref": "https://schema.mitre.org/schemas/stix2.0/common/x_mitre_network_requirements.json" } }
         ]
     }
 }

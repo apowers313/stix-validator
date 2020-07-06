@@ -8528,8 +8528,8 @@
             "external_references": [
                 {
                     "source_name": "Zscaler-SuperMarioRun",
-                    "description": "Viral Gandhi. (2017, January 12). Super Mario Run Malware #2 \u2013 DroidJack RAT. Retrieved January 20, 2017.",
-                    "url": "https://www.zscaler.com/blogs/research/super-mario-run-malware-2-\u2013-droidjack-rat"
+                    "description": "Viral Gandhi. (2017, January 12). Super Mario Run Malware #2 DroidJack RAT. Retrieved January 20, 2017.",
+                    "url": "https://www.zscaler.com/blogs/research/super-mario-run-malware-2--droidjack-rat"
                 }
             ],
             "relationship_type": "uses"
@@ -8537,7 +8537,7 @@
         {
             "type": "relationship",
             "target_ref": "attack-pattern--d4536441-1bcc-49fa-80ae-a596ed3f7ffd",
-            "description": "[DualToy](https://attack.mitre.org/software/S0315) collects the connected iOS device\u2019s information including IMEI, IMSI, ICCID, serial number and phone number.",
+            "description": "[DualToy](https://attack.mitre.org/software/S0315) collects the connected iOS devices information including IMEI, IMSI, ICCID, serial number and phone number.",
             "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
             "created": "2018-10-17T00:14:20.652Z",
             "id": "relationship--71490fdb-e271-4a67-b932-5288924b1dae",

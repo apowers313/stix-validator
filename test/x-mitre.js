@@ -21,10 +21,32 @@ describe("mitre", function() {
             sv.validate(ap);
         });
 
+        it("small", function() {
+            let ap = require("./helpers/x-mitre/bundle-small.json");
+            sv.validate(ap);
+        });
+
         it("enterprise matrix", function() {
+            // let ap = require("./helpers/x-mitre/enterprise-attack-20200705.json");
             let ap = require("./helpers/x-mitre/bundle.json");
             sv.validate(ap);
         });
+
+        it.only("mobile matrix", function() {
+            let ap = require("./helpers/x-mitre/mobile-attack-20200705.json");
+            sv.validate(ap);
+        });
+
+        it.skip("pre matrix", function() {
+            let ap = require("./helpers/x-mitre/pre-attack-20200705.json");
+            sv.validate(ap);
+        });
+
+        it("capec matrix", function() {
+            let ap = require("./helpers/capec/stix-capec-20200705.json");
+            sv.validate(ap);
+        });
+
     });
 
     describe("malware", function() {
@@ -37,6 +59,43 @@ describe("mitre", function() {
             let ap = require("./helpers/x-mitre/malware.json");
             sv.validate(ap);
         });
+
+        it("throws on bad x_mitre_platforms");
+        it("throws on bad x_mitre_aliases");
+        it("throws on bad x_mitre_version");
+        it("throws on bad x_mitre_contributors");
+        it("throws on bad x_mitre_old_attack_id");
+    });
+
+    describe("intrusion-set", function() {
+        let sv = new StixValidator({
+            schema: "sdos/intrusion-set",
+            mitre: true
+        });
+
+        it("validates", function() {
+            let ap = require("./helpers/x-mitre/intrusion-set.json");
+            sv.validate(ap);
+        });
+
+        it("throws on bad x_mitre_version");
+        it("throws on bad x_mitre_contributors");
+    });
+
+    describe("course-of-action", function() {
+        let sv = new StixValidator({
+            schema: "sdos/course-of-action",
+            mitre: true
+        });
+
+        it("validates", function() {
+            let ap = require("./helpers/x-mitre/course-of-action.json");
+            sv.validate(ap);
+        });
+
+        it("throws on bad x_mitre_version");
+        it("throws on bad x_mitre_deprecated");
+        it("throws on bad x_mitre_old_attack_id");
     });
 
     describe("relationship", function() {
@@ -49,6 +108,59 @@ describe("mitre", function() {
             let ap = require("./helpers/x-mitre/relationship.json");
             sv.validate(ap);
         });
+    });
+
+    describe("tool", function() {
+        let sv = new StixValidator({
+            schema: "sdos/tool",
+            mitre: true
+        });
+
+        it("validates", function() {
+            let ap = require("./helpers/x-mitre/tool.json");
+            sv.validate(ap);
+        });
+
+        it("throws on bad x_mitre_platforms");
+        it("throws on bad x_mitre_aliases");
+        it("throws on bad x_mitre_version");
+        it("throws on bad x_mitre_contributors");
+    });
+
+    describe("x-mitre-matrix", function() {
+        let sv = new StixValidator({
+            schema: "sdos/x-mitre-matrix",
+            mitre: true
+        });
+
+        it("validates", function() {
+            let ap = require("./helpers/x-mitre/x-mitre-matrix.json");
+            sv.validate(ap);
+        });
+
+        it("throws on bad id");
+        it("throws on bad name");
+        it("throws on bad description");
+        it("throws on bad tactic_refs");
+        it("throws on missing tactic_refs");
+    });
+
+    describe("x-mitre-tactic", function() {
+        let sv = new StixValidator({
+            schema: "sdos/x-mitre-tactic",
+            mitre: true
+        });
+
+        it("validates", function() {
+            let ap = require("./helpers/x-mitre/x-mitre-tactic.json");
+            sv.validate(ap);
+        });
+
+        it("throws on bad id");
+        it("throws on bad name");
+        it("throws on bad description");
+        it("throws on bad x_mitre_shortname");
+        it("throws on missing x_mitre_shortname");
     });
 
     describe("attack-pattern", function() {
@@ -130,7 +242,7 @@ describe("mitre", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-platforms-2.json");
             assert.throws(function() {
                 sv.validate(ap);
-            }, Error, "Property '.x_mitre_platforms[1]' must be one of the values: \"Linux, macOS, Windows, SaaS, Office 365, Azure AD, Azure, AWS, GCP\" but got the value: \"Bob\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_platforms.json/items/enum'");
+            }, Error, "Property '.x_mitre_platforms[1]' must be one of the values: \"Linux, macOS, Windows, SaaS, Office 365, Azure AD, Azure, AWS, GCP, Android, iOS\" but got the value: \"Bob\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_platforms.json/items/enum'");
         });
 
         it("throws on bad version", function() {
@@ -161,18 +273,24 @@ describe("mitre", function() {
             }, Error, "Property '.x_mitre_contributors[2]' must be a string but got the value: true. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_contributors.json/items/type'");
         });
 
-        it("throws no bad defense_bypassed (not array)", function() {
+        it("throws on bad x_mitre_defense_bypassed (not array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-defense-bypassed.json");
             assert.throws(function() {
                 sv.validate(ap);
             }, Error, "Property '.x_mitre_defense_bypassed' must be a array but got the value: \"bob\". Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json'");
         });
 
-        it("throws no bad defense_bypassed (bad type in array)", function() {
+        it("throws on bad x_mitre_defense_bypassed (bad type in array)", function() {
             let ap = require("./helpers/x-mitre/attack-pattern-bad-defense-bypassed-2.json");
             assert.throws(function() {
                 sv.validate(ap);
             }, Error, "Property '.x_mitre_defense_bypassed[2]' must be a string but got the value: {\"foo\":\"bar\"}. Relevant JSON schema is: 'https://schema.mitre.org/schemas/stix2.0/common/x_mitre_defense_bypassed.json/items/type'");
         });
+
+        it("throws on bad x_mitre_effective_permissions");
+        it("throws on bad x_mitre_remote_support");
+        it("throws on bad x_mitre_network_requirements");
+        it("throws on bad x_mitre_system_requirements");
+        it("throws on bad x_mitre_impact_type");
     });
 });

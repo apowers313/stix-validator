@@ -9,7 +9,23 @@
         },
         "with": [
             { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/0/$ref", "value": "../sdos/attack-pattern.json" },
-            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/0/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/attack-pattern.json" }
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/0/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/attack-pattern.json" },
+
+            { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/2/$ref", "value": "../sdos/course-of-action.json" },
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/2/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/course-of-action.json" },
+
+            { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/5/$ref", "value": "../sdos/intrusion-set.json" },
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/5/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/intrusion-set.json" },
+
+            { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/6/$ref", "value": "../sdos/malware.json" },
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/6/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/malware.json" },
+
+            { "op": "test", "path": "/properties/objects/items/anyOf/0/oneOf/13/$ref", "value": "../sdos/tool.json" },
+            { "op": "replace", "path": "/properties/objects/items/anyOf/0/oneOf/13/$ref", "value": "https://schema.mitre.org/schemas/stix2.0/sdos/tool.json" },
+
+            { "op": "add", "path": "/properties/objects/items/anyOf/0/oneOf/-", "value": {"$ref": "https://schema.mitre.org/schemas/stix2.0/sdos/x-mitre-tactic.json"} },
+
+            { "op": "add", "path": "/properties/objects/items/anyOf/0/oneOf/-", "value": {"$ref": "https://schema.mitre.org/schemas/stix2.0/sdos/x-mitre-matrix.json"} }
         ]
     }
 }

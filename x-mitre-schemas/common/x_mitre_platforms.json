@@ -4,6 +4,7 @@
     "title": "platforms",
     "type": "array",
     "description": "",
+    "minItems": 1,
     "items": {
         "type": "string",
         "enum": [
@@ -15,7 +16,9 @@
             "Azure AD",
             "Azure",
             "AWS",
-            "GCP"
+            "GCP",
+            "Android",
+            "iOS"
         ]
     }
 }
