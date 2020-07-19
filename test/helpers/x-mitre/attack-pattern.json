@@ -68,5 +68,17 @@
     "x_mitre_defense_bypassed": [
         "Multi-Factor Authentication",
         "Logon Credentials"
+    ],
+    "x_mitre_effective_permissions": [
+        "SYSTEM"
+    ],
+    "x_mitre_remote_support": true,
+    "x_mitre_network_requirements": false,
+    "x_mitre_system_requirements": [
+        "Compiler software (either native to the system or delivered by the adversary)"
+    ],
+    "x_mitre_impact_type": [
+        "Availability"
     ]
+
 }
