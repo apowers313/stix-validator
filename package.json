@@ -13,7 +13,7 @@
   "author": "Adam Powers <ampower@amazon.com>",
   "license": "UNLICENSED",
   "dependencies": {
-    "ajv": "^6.12.2",
+    "ajv": "^6.12.3",
     "ajv-formats-draft2019": "^1.4.3",
     "ajv-merge-patch": "^4.1.0",
     "walk": "^2.3.14"
